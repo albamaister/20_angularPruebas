@@ -58,4 +58,17 @@ describe('Incremendator Component', () => {
         expect(component.progreso).toBe(50);
     });
 
+
+    it('Debe de mostar la progreso en el titulo', () => {
+        const botones = fixture.debugElement.queryAll(By.css('.btn-primary'));
+        botones[0].triggerEventHandler('click', null);
+
+        fixture.detectChanges(); // disparar la deteccion de cambios
+        const elem: HTMLElement = fixture.debugElement.query(By.css('h3')).nativeElement;
+        // Obteniendo el elemento html del fixure que es el elemento compilado de angular
+
+        expect( elem.innerHTML ).toContain('45');
+
+    });
+
 });
