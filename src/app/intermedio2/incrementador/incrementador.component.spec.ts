@@ -32,4 +32,21 @@ describe('Incremendator Component', () => {
 
     });
 
+    it('Debe de mostrar en el imput el valor de progreso', () => {
+        component.cambiarValor(5);
+        fixture.detectChanges();
+
+        fixture.whenStable().then( () => {
+
+            const input = fixture.debugElement.query( By.css('input') );
+
+            const elem = input.nativeElement;
+
+            expect(elem.value).toBe('55');
+        });
+
+
+
+    });
+
 });
