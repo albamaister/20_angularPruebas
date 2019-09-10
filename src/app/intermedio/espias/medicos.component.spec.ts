@@ -1,6 +1,6 @@
 import { MedicosComponent } from './medicos.component';
 import { MedicosService } from './medicos.service';
-import {from} from 'rxjs/index';
+import {from, empty} from 'rxjs/index';
 
 
 describe('MedicosComponent', () => {
@@ -26,7 +26,15 @@ describe('MedicosComponent', () => {
         componente.ngOnInit();
         expect( componente.medicos.length ).toBeGreaterThan(0);
 
+    });
 
+    it( 'Debe de llamar al servidor para agregar un medico', () =>  {
+        const espia = spyOn( servicio, 'agregarMedico' ).and.callFake(medico => {
+            return empty();
+        });
+        componente.agregarMedico();
+
+        expect(espia).toHaveBeenCalled();
     });
 
 
