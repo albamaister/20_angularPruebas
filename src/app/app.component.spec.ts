@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { By } from '@angular/platform-browser';
 import { RouterOutlet, RouterLinkWithHref } from '@angular/router';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 
 
@@ -15,7 +16,8 @@ describe('AppComponent', () => {
       ],
       imports: [
         RouterTestingModule.withRoutes([])
-      ]
+      ],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   }));
 
@@ -40,18 +42,6 @@ describe('AppComponent', () => {
 
   });
 
-  it('Debe de tener un link a la pagina de metodos', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const debugElements = fixture.debugElement.queryAll(By.directive(RouterLinkWithHref));
 
-    let existe = false;
-    for (const elem of debugElements) {
-      if ( elem.attributes['routerLink'] === '/medicos' ) {
-        existe = true;
-        break;
-      }
-    }
-    expect(existe).toBeTruthy();
-  });
 
 });
