@@ -3,7 +3,7 @@ import { AppComponent } from './app.component';
 
 import { RouterTestingModule } from '@angular/router/testing';
 import { By } from '@angular/platform-browser';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterLinkWithHref } from '@angular/router';
 
 
 
@@ -38,6 +38,20 @@ describe('AppComponent', () => {
 
     expect(debugElement).not.toBeNull();
 
+  });
+
+  it('Debe de tener un link a la pagina de metodos', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const debugElements = fixture.debugElement.queryAll(By.directive(RouterLinkWithHref));
+
+    let existe = false;
+    for (const elem of debugElements) {
+      if ( elem.attributes['routerLink'] === '/medicos' ) {
+        existe = true;
+        break;
+      }
+    }
+    expect(existe).toBeTruthy();
   });
 
 });
