@@ -2,26 +2,58 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
 
-## Development server
+## Pruebas unitarias y pruebas de integracion 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+En esta app se realizó pruebas de:
 
-## Code scaffolding
+----------------------------------------------------------------
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+### Pruebas unitarias básicas
+- Strings
+- Números
+- Booleanos
+- Arreglos
+- Clases
+- Cobertura de nuestras pruebas
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+----------------------------------------------------------------
 
-## Running unit tests
+### Pruebas unitarias intermedias/avanzadas
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Pruebas sobre Event Emitter
+- Formularios
+- Validaciones
+- Saltar pruebas
+- Espías
+- Simular retornos de servicios
+- Simular llamado de funciones
 
-## Running end-to-end tests
+----------------------------------------------------------------
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### Pruebas de integración básicas
 
-## Further help
+- Aprender la configuración básica de una prueba de integración
+- Comprobación básica de un componente
+- TestingModule
+- Archivos SPEC generados automáticamente por el AngularCLI
+- Pruebas en el HTML
+- Revisar inputs y elementos HTML
+- Separación entre pruebas unitarias y pruebas de integración
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+----------------------------------------------------------------
+
+### Pruebas de integración intermedias y avanzadas
+
+- Revisar la existencia de una ruta
+- Confirmar una directiva de Angular (router-outlet y routerLink)
+- Errores por selectores desconocidos
+- Reemplazar servicios de Angular por servicios falsos controlados
+- Comprobar parámetros de elementos que retornen observables
+- Subject
+- Gets
+
+
+![alt text](https://github.com/albamaister/20_angularPruebas/blob/master/src/assets/pruebas1.png)
+
+![alt text](https://github.com/albamaister/20_angularPruebas/blob/master/src/assets/pruebas2.png)
