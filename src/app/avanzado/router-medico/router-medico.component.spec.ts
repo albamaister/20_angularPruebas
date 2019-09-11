@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RouterMedicoComponent } from './router-medico.component';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Observable, empty } from 'rxjs';
+import { Observable, empty, Subject } from 'rxjs';
 
 
 class FakeRouter {
@@ -12,7 +12,15 @@ class FakeRouter {
 }
 
 class FakeActivatedRoute {
-    params: Observable<any> = empty();
+    // params: Observable<any> = empty();
+    private subject = new Subject(); // nos permite insertar valores a un observable
+
+    push( valor ) {
+      this.subject.next(valor);
+    }
+    get params() {
+      return this.subject.asObservable();
+    }
 }
 
 describe('RouterMedicoComponent', () => {
@@ -42,6 +50,16 @@ describe('RouterMedicoComponent', () => {
     component.guardarMedico();
 
     expect(spy).toHaveBeenCalledWith(['medico', '123']);
+  });
+
+  it('Debe de colocar el id = nuevo', () => {
+    component = fixture.componentInstance;
+
+    const activateRoute: FakeActivatedRoute = TestBed.get(ActivatedRoute);
+
+    activateRoute.push({ id: 'nuevo' });
+
+    expect( component.id ).toBe('nuevo');
   });
 
 
